@@ -7,8 +7,6 @@ __pycache__/
 # Pycharm
 .idea/
 
-# Dataset
-/data/
 
 # Saved models
 **/model/
