@@ -7,6 +7,8 @@ The official implementation for "Geometric Knowledge Distillation: Topology Comp
 Related materials: 
 [paper](https://openreview.net/pdf?id=7WGNT3MHyBm)
 
+<img src="figure.png" width="900">
+
 ### Use the Code
 
 - Install the required package according to `requirements.txt`.
