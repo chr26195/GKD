@@ -20,7 +20,7 @@ import copy
 
 torch.autograd.set_detect_anomaly(True)
 
-# NOTE: for consistent data splits, see data_utils.rand_train_test_idx
+# NOTE: data splits are consistent given fixed seed, see data_utils.rand_train_test_idx
 def fix_seed(seed):
     random.seed(seed)
     np.random.seed(seed)
@@ -123,7 +123,7 @@ for run in range(args.runs):
     train_idx = split_idx['train'].to(device)
     dataset.train_idx = train_idx
 
-    # Processing for privileged information
+    # Processing for privileged information in each run
     if args.priv_type == 'edge':
         num = int(edge_index_directed.size(1) * (1 - args.priv_ratio)) # priv_ratio: information loss ratio
         idx = torch.randperm(edge_index_directed.size(1))[:num]
@@ -148,7 +148,7 @@ for run in range(args.runs):
     model.reset_parameters()
 
     if args.mode == 'train': # loading teacher model
-        model_dir = f'saved_models/{args.base_model}_{args.dataset}.pkl'
+        model_dir = f'saved_models/{args.base_model}_{args.dataset}_{run}.pkl'
         if not os.path.exists(model_dir):
             raise FileNotFoundError
         else:
@@ -238,7 +238,7 @@ for run in range(args.runs):
             else:
                 best_out = result[-1]
             if args.mode == 'pretrain' and args.save_model:
-                torch.save(model.teacher_gnn.state_dict(), f'saved_models/{args.base_model}_{args.dataset}.pkl')
+                torch.save(model.teacher_gnn.state_dict(), f'saved_models/{args.base_model}_{args.dataset}_{run}.pkl')
 
         if epoch % args.display_step == 0:
             print(f'Epoch: {epoch:02d}, '

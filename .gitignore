@@ -11,7 +11,9 @@ __pycache__/
 # Saved models
 **/model/
 **/checkpoint/
+**/saved_models/
 *.pkl
+*.sh
 
 # SLURM script
 *.slurm

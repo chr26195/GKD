@@ -12,10 +12,15 @@ Related materials:
 ### Use the Code
 
 - Install the required package according to `requirements.txt`.
-- Download the datasets into folder `/data` or specify your own data path in `parse.py`.
-- Pretrain teacher/oracle models using `--mode pretrain --dist_mode no --save_model` / `--mode pretrain --dist_mode no --save_model --oracle`. Pretrained models will be saved in `/saved_models`
-- Train student models, e.g., using `python main.py --mode train --dataset cora --rand_split --priv_type edge --priv_ratio 0.5 --dist_mode gkd --kernel sigmoid` and specifying other hyperparameters listed in `parse.py`
-
+- Specify your own data path in `parse.py` and download the datasets.
+- Pretrain teacher models, which will be saved in the folder `/saved_models`
+'''
+python main.py --dataset cora --rand_split --base_model gcn --mode pretrain --dist_mode no --save_model 
+'''
+- Train student models, e.g.,
+'''
+python main.py --dataset cora --rand_split --base_model gcn --mode train --priv_type edge --dist_mode gkd --kernel sigmoid
+'''
 
 ### Citation
 If you find our codes useful, please consider citing our work
