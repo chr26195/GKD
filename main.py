@@ -188,7 +188,7 @@ for run in range(args.runs):
 
             if args.dist_mode == 'no': loss = sup_loss
             elif args.dist_mode == 'gkd' and not args.use_kd:
-                loss = (1 - args.alpha) * sup_loss + args.alpha * outputs[1] * args.t * args.t
+                loss = (1 - args.alpha) * sup_loss + args.beta * outputs[1] * args.t * args.t
             elif args.dist_mode == 'gkd' and args.use_kd:
                 loss = (1 - args.alpha) * sup_loss + args.alpha * outputs[1] + args.beta * outputs[2] * args.t * args.t
     
