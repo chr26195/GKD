@@ -14,13 +14,13 @@ Related materials:
 - Install the required package according to `requirements.txt`.
 - Specify your own data path in `parse.py` and download the datasets.
 - Pretrain teacher models, which will be saved in the folder `/saved_models`
-'''
+```
 python main.py --dataset cora --rand_split --base_model gcn --mode pretrain --dist_mode no --save_model 
-'''
+```
 - Train student models, e.g.,
-'''
+```
 python main.py --dataset cora --rand_split --base_model gcn --mode train --priv_type edge --dist_mode gkd --kernel sigmoid
-'''
+```
 
 ### Citation
 If you find our codes useful, please consider citing our work
