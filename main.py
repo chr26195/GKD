@@ -261,4 +261,4 @@ with open(f"{filename}", 'a+') as write_obj:
     sub_dataset = f'{args.sub_dataset},' if args.sub_dataset else ''
     write_obj.write(f"data({args.dataset},{args.priv_type}{args.priv_ratio}), model({args.log_name},{args.base_model},{args.dist_mode}),\
         \t lr({args.lr}), wd({args.weight_decay}), alpha({args.alpha}), t({args.t}), dt({args.delta}) \t")
-    write_obj.write("perf: {} $\pm$ {}\t".format(format(results.mean(), '.2f'), format(results.std(), '.2f')))
+    write_obj.write("perf: {} $\pm$ {}\n".format(format(results.mean(), '.2f'), format(results.std(), '.2f')))
