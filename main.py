@@ -188,9 +188,9 @@ for run in range(args.runs):
 
             if args.dist_mode == 'no': loss = sup_loss
             elif args.dist_mode == 'gkd' and not args.use_kd:
-                loss = (1 - args.alpha) * sup_loss + args.beta * outputs[1] * args.t * args.t
+                loss = (1 - args.alpha) * sup_loss + args.beta * outputs[1] * args.tau * args.tau
             elif args.dist_mode == 'gkd' and args.use_kd:
-                loss = (1 - args.alpha) * sup_loss + args.alpha * outputs[1] + args.beta * outputs[2] * args.t * args.t
+                loss = (1 - args.alpha) * sup_loss + args.alpha * outputs[1] + args.beta * outputs[2] * args.tau * args.tau
     
             loss.backward()
             optimizer_st.step()
@@ -208,7 +208,7 @@ for run in range(args.runs):
             if not args.use_kd:
                 loss = (1 - args.alpha) * sup_loss + args.alpha * outputs[1]
             else:
-                loss = (1 - args.alpha) * sup_loss + args.alpha * outputs[1] + args.beta * outputs[3] * args.t * args.t
+                loss = (1 - args.alpha) * sup_loss + args.alpha * outputs[1] + args.beta * outputs[3] * args.tau * args.tau
                 
             optimizer_k.zero_grad()            
             rec_loss = outputs[2]
