@@ -26,7 +26,7 @@ def parser_add_main_args(parser):
     parser.add_argument('--metric', type=str, default='acc', choices=['acc', 'rocauc', 'f1'],
                         help='evaluation metric')
     parser.add_argument('--runs', type=int, default=5, help='number of distinct runs')
-    parser.add_argument('--epochs', type=int, default=100)
+    parser.add_argument('--epochs', type=int, default=200)
 
     parser.add_argument('--hidden_channels', type=int, default=32)
 
