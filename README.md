@@ -22,16 +22,5 @@ python main.py --dataset cora --rand_split --use_bn --base_model gcn --mode pret
 python main.py --dataset cora --rand_split --use_bn --base_model gcn --mode train --priv_type edge --dist_mode gkd --kernel sigmoid
 ```
 
-### Citation
-If you find our codes useful, please consider citing our work
-```bibtex
-      @inproceedings{yang2022geometric,
-      title = {Geometric Knowledge Distillation: Topology Compression for Graph Neural Networks},
-      author = {Chenxiao Yang and Qitian Wu and Junchi Yan},
-      booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
-      year = {2022}
-      }
-```
-
 ### ACK
 The pipeline for training and preprocessing is developed on basis of the Non-Homophilous Benchmark project.
